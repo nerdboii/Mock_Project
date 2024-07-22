@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "mkdir bin",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "rmdir /S /Q \"${workspaceFolder}\\bin\" && mkdir \"${workspaceFolder}\\bin\""
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "build my project",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}\\src\\Bot\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\Game\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\Match\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\Menu\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\Player\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\Util\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\bin\\Caro.exe",
+                "-I",
+                "${workspaceFolder}\\include\\Bot",
+                "-I",
+                "${workspaceFolder}\\include\\Game",
+                "-I",
+                "${workspaceFolder}\\include\\LinkedList",
+                "-I",
+                "${workspaceFolder}\\include\\Match",
+                "-I",
+                "${workspaceFolder}\\include\\Menu",
+                "-I",
+                "${workspaceFolder}\\include\\Player",
+                "-I",
+                "${workspaceFolder}\\include\\Util"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "dependsOn": "mkdir bin"
+        }
+    ]
+}
